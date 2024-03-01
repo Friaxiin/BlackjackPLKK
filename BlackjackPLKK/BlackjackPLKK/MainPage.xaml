@@ -8,7 +8,11 @@
             <Label Text="Punkty przeciwnika:"/>
             <Label x:Name="sumELBI"/>
         </StackLayout>
-        
+        <ScrollView Orientation="Horizontal" VerticalOptions="EndAndExpand">
+            <StackLayout x:Name="cardDeckEnemy" VerticalOptions="EndAndExpand" HeightRequest="130" Margin="0,0,0,20" BackgroundColor="DarkGray" Orientation="Horizontal" Padding="20">
+            </StackLayout>
+        </ScrollView>
+    
     </StackLayout>
 
 </ContentPage>
