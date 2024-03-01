@@ -34,6 +34,8 @@ namespace BlackjackPLKK
         public MainPage()
         {
             InitializeComponent();
+            sumULBl.Text = UserScoreSum.ToString();
+            sumELBl.Text = EnemyScoreSum.ToString();
 
         }
         private void DrawCardUser(object sender, EventArgs e)
@@ -85,11 +87,11 @@ namespace BlackjackPLKK
             UserScoreSum += CardValueDictionary[card.CardValue];
             sumULBl.Text = UserScoreSum.ToString();
 
-            //CheckScore();
+            CheckScore();
 
-            if (EnemyScoreSum < 21 && cardDeckUser.Children.Count != 0)
+            if (UserScoreSum < 21 && cardDeckUser.Children.Count != 0)
             {
-                //DrawCardEnemy;
+                DrawCardEnemy();
             }
         }
 
@@ -106,7 +108,7 @@ namespace BlackjackPLKK
             card.CardColor = Colors[cardColorIndex];
 
             //Labels
-            Label cardColorLbl = new Label()
+            Label cardColorLblTop = new Label()
             {
                 Text = card.CardColor.ToString(),
                 FontSize = 16,
@@ -121,7 +123,14 @@ namespace BlackjackPLKK
                 HorizontalTextAlignment = TextAlignment.Center,
                 VerticalTextAlignment = TextAlignment.Center,
             };
+            Label cardColorLblBottom = new Label()
+            {
+                Text = card.CardColor.ToString(),
+                FontSize = 16,
+                HorizontalTextAlignment = TextAlignment.End,
+                VerticalTextAlignment = TextAlignment.End
 
+            };
 
             //Layout
             StackLayout EnemyCardLayout = new StackLayout()
@@ -134,32 +143,33 @@ namespace BlackjackPLKK
                 HorizontalOptions = LayoutOptions.Start
             };
 
-            EnemyCardLayout.Children.Add(cardColorLbl);
+            EnemyCardLayout.Children.Add(cardColorLblTop);
             EnemyCardLayout.Children.Add(cardValueLbl);
+            EnemyCardLayout.Children.Add(cardColorLblBottom);
 
 
-            cardDeckUser.Children.Add(EnemyCardLayout);
+            cardDeckEnemy.Children.Add(EnemyCardLayout);
             EnemyScoreSum += CardValueDictionary[card.CardValue];
             sumELBl.Text = EnemyScoreSum.ToString();
 
             CheckScore();
         }
 
-        public void CheckScore()
+        public async void CheckScore()
         {
             if (EnemyScoreSum == 21 && UserScoreSum == 21)
             {
-                DisplayAlert("Remis", "\n Twój wynik: " + UserScoreSum.ToString() + "\n Wynik przeciwnika: " + EnemyScoreSum, "OK");
+                await DisplayAlert("Remis", "\n Twój wynik: " + UserScoreSum.ToString() + "\n Wynik przeciwnika: " + EnemyScoreSum, "OK");
                 Restart();
             }
-            if (EnemyScoreSum > 21 && UserScoreSum < 21 || UserScoreSum == 21 && EnemyScoreSum != 21)
+            if (EnemyScoreSum > 21 && UserScoreSum <= 21 || UserScoreSum == 21 && EnemyScoreSum != 21)
             {
-                DisplayAlert("Wygrywasz", "\n Twój wynik: " + UserScoreSum.ToString() + "\n Wynik przeciwnika: " + EnemyScoreSum, "OK");
+                await DisplayAlert("Wygrywasz", "\n Twój wynik: " + UserScoreSum.ToString() + "\n Wynik przeciwnika: " + EnemyScoreSum, "OK");
                 Restart();
             }
-            if (EnemyScoreSum < 21 && UserScoreSum > 21 || EnemyScoreSum == 21 && UserScoreSum != 21)
+            if (EnemyScoreSum <= 21 && UserScoreSum > 21 || EnemyScoreSum == 21 && UserScoreSum != 21)
             {
-                DisplayAlert("Przegrywasz", "\n Twój wynik: " + UserScoreSum.ToString() + "\n Wynik przeciwnika: " + EnemyScoreSum, "OK");
+                await DisplayAlert("Przegrywasz", "\n Twój wynik: " + UserScoreSum.ToString() + "\n Wynik przeciwnika: " + EnemyScoreSum, "OK");
                 Restart();
             }
         }
@@ -176,28 +186,28 @@ namespace BlackjackPLKK
 
         public void Pass(object sender, EventArgs e)
         {
-            if (EnemyScoreSum < UserScoreSum)
+            if (EnemyScoreSum <= UserScoreSum)
             {
                 DrawCardEnemy();
             }
             CheckScorePass();
         }
 
-        public void CheckScorePass()
+        public async void CheckScorePass()
         {
             if (EnemyScoreSum == UserScoreSum)
             {
-                DisplayAlert("Remis", "\n Twój wynik: " + UserScoreSum.ToString() + "\n Wynik przeciwnika: " + EnemyScoreSum, "OK");
+                await DisplayAlert("Remis", "\n Twój wynik: " + UserScoreSum.ToString() + "\n Wynik przeciwnika: " + EnemyScoreSum, "OK");
                 Restart();
             }
             if (EnemyScoreSum > UserScoreSum)
             {
-                DisplayAlert("Przegrywasz", "\n Twój wynik: " + UserScoreSum.ToString() + "\n Wynik przeciwnika: " + EnemyScoreSum, "OK");
+                await DisplayAlert("Przegrywasz", "\n Twój wynik: " + UserScoreSum.ToString() + "\n Wynik przeciwnika: " + EnemyScoreSum, "OK");
                 Restart();
             }
             if (UserScoreSum > EnemyScoreSum)
             {
-                DisplayAlert("Wygrywasz", "\n Twój wynik: " + UserScoreSum.ToString() + "\n Wynik przeciwnika: " + EnemyScoreSum, "OK");
+                await DisplayAlert("Wygrywasz", "\n Twój wynik: " + UserScoreSum.ToString() + "\n Wynik przeciwnika: " + EnemyScoreSum, "OK");
                 Restart();
             }
         }

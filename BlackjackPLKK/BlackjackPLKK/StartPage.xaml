@@ -7,7 +7,7 @@
         <StackLayout>
             <Label Text="Witamy w naszej aplikacji BlackJack" HorizontalOptions="Center"  FontAttributes="Bold" FontSize="20" Margin="0,100,0,0"/>
             <Label Text="Mamy nadzieję że będziesz się świetnie bawił!" HorizontalOptions="Center"  Margin="0,0,0,0" />   
-            <Button Text="Graj" BackgroundColor="LightGreen" HorizontalOptions="Center" WidthRequest="299" Margin="0,10,0,0" Clicked="Nawigacja_MainPage"/>
+            <Button Text="Graj" BackgroundColor="LightGreen" HorizontalOptions="Center" WidthRequest="299" Margin="0,10,0,0" Clicked="NavigationToMainPage"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

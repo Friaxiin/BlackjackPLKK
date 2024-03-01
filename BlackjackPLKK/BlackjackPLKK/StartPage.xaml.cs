@@ -16,8 +16,7 @@ namespace BlackjackPLKK
         {
             InitializeComponent();
         }
-
-        private void Nawigacja_MainPage(object sender, EventArgs e)
+        private void NavigationToMainPage(object sender, EventArgs e)
         {
             Navigation.PushAsync(new MainPage());
         }
