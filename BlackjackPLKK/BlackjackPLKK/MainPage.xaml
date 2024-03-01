@@ -12,7 +12,11 @@
             <StackLayout x:Name="cardDeckEnemy" VerticalOptions="EndAndExpand" HeightRequest="130" Margin="0,0,0,20" BackgroundColor="DarkGray" Orientation="Horizontal" Padding="20">
             </StackLayout>
         </ScrollView>
-    
+        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
+            <Label Text="Twoje punkty:"/>
+            <Label x:Name="sumaLBI"/>
+            
+        </StackLayout>
     </StackLayout>
 
 </ContentPage>
