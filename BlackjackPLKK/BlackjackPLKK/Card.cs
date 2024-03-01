@@ -6,7 +6,7 @@ namespace BlackjackPLKK
 {
     public class Card
     {
-        public int CardValue {  get; set; }
+        public string CardValue {  get; set; }
         public string CardColor { get; set; }
     }
 }

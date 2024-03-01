@@ -6,7 +6,7 @@
     <StackLayout>
         <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
             <Label Text="Punkty przeciwnika:"/>
-            <Label x:Name="sumELBI"/>
+            <Label x:Name="sumELBl"/>
         </StackLayout>
         <ScrollView Orientation="Horizontal" VerticalOptions="EndAndExpand">
             <StackLayout x:Name="cardDeckEnemy" VerticalOptions="EndAndExpand" HeightRequest="130" Margin="0,0,0,20" BackgroundColor="DarkGray" Orientation="Horizontal" Padding="20">
@@ -14,14 +14,14 @@
         </ScrollView>
         <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
             <Label Text="Twoje punkty:"/>
-            <Label x:Name="sumaLBI"/>
+            <Label x:Name="sumULBl"/>
         </StackLayout>
         <ScrollView  Orientation="Horizontal" VerticalOptions="EndAndExpand" Margin="0,0,0,20">
             <StackLayout x:Name="cardDeckUser" VerticalOptions="EndAndExpand" HeightRequest="130" Margin="0,0,0,20" BackgroundColor="DarkGray" Orientation="Horizontal" Padding="20">
             </StackLayout>
         </ScrollView>
-        <Button Text="Dobierz" Clicked="Button_Clicked" VerticalOptions="EndAndExpand" WidthRequest="200" HeightRequest="60" HorizontalOptions="Center" BackgroundColor="DarkTurquoise"/>
-        <Button Text="Spasuj" Clicked="Button_Clicked_1" VerticalOptions="End" WidthRequest="200" HeightRequest="60" HorizontalOptions="Center" BackgroundColor="DarkKhaki"/>
+        <Button Text="Dobierz" Clicked="DrawCardUser" VerticalOptions="EndAndExpand" WidthRequest="200" HeightRequest="60" HorizontalOptions="Center" BackgroundColor="DarkTurquoise"/>
+        <Button Text="Spasuj" Clicked="Pass" VerticalOptions="End" WidthRequest="200" HeightRequest="60" HorizontalOptions="Center" BackgroundColor="DarkKhaki"/>
     </StackLayout>
 
 </ContentPage>
