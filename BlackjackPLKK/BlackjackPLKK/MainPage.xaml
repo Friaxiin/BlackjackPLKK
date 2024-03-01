@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BlackjackPLKK.MainPage">
+             x:Class="BlackjackPLKK.MainPage"
+             NavigationPage.HasNavigationBar="False">
 
     <StackLayout>
         <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
@@ -9,7 +10,7 @@
             <Label x:Name="sumELBl"/>
         </StackLayout>
         <ScrollView Orientation="Horizontal" VerticalOptions="EndAndExpand">
-            <StackLayout x:Name="cardDeckEnemy" VerticalOptions="EndAndExpand" HeightRequest="130" Margin="0,0,0,20" BackgroundColor="DarkGray" Orientation="Horizontal" Padding="20">
+            <StackLayout x:Name="cardDeckEnemy" VerticalOptions="EndAndExpand" HeightRequest="130" Margin="0,0,0,20" BackgroundColor="DarkGray" Orientation="Horizontal" Padding="10">
             </StackLayout>
         </ScrollView>
         <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
@@ -17,7 +18,7 @@
             <Label x:Name="sumULBl"/>
         </StackLayout>
         <ScrollView  Orientation="Horizontal" VerticalOptions="EndAndExpand" Margin="0,0,0,20">
-            <StackLayout x:Name="cardDeckUser" VerticalOptions="EndAndExpand" HeightRequest="130" Margin="0,0,0,20" BackgroundColor="DarkGray" Orientation="Horizontal" Padding="20">
+            <StackLayout x:Name="cardDeckUser" VerticalOptions="EndAndExpand" HeightRequest="130" Margin="0,0,0,20" BackgroundColor="DarkGray" Orientation="Horizontal" Padding="10">
             </StackLayout>
         </ScrollView>
         <Button Text="Dobierz" Clicked="DrawCardUser" VerticalOptions="EndAndExpand" WidthRequest="200" HeightRequest="60" HorizontalOptions="Center" BackgroundColor="DarkTurquoise"/>

@@ -55,15 +55,15 @@ namespace BlackjackPLKK
             {
                 Text = card.CardColor.ToString(),
                 FontSize = 16,
-                HorizontalTextAlignment = TextAlignment.Start, 
+                HorizontalTextAlignment = TextAlignment.Start,
                 VerticalTextAlignment = TextAlignment.Start,
 
             };
             Label cardValueLbl = new Label()
             {
                 Text = card.CardValue.ToString(),
-                FontSize = 24,
-                HorizontalTextAlignment = TextAlignment.Center,
+                FontSize = 22,
+                HorizontalTextAlignment = TextAlignment.Start,
                 VerticalTextAlignment = TextAlignment.Center,
             };
 
@@ -72,7 +72,7 @@ namespace BlackjackPLKK
             StackLayout UserCardLayout = new StackLayout()
             {
                 WidthRequest = 70,
-                HeightRequest = 100,
+                HeightRequest = 150,
                 BackgroundColor = Color.White,
                 Orientation = StackOrientation.Horizontal,
                 Margin = new Thickness(0,0,10,0),
@@ -81,7 +81,6 @@ namespace BlackjackPLKK
 
             UserCardLayout.Children.Add(cardColorLbl);
             UserCardLayout.Children.Add(cardValueLbl);
-
 
             cardDeckUser.Children.Add(UserCardLayout);
             UserScoreSum += CardValueDictionary[card.CardValue];
@@ -100,7 +99,7 @@ namespace BlackjackPLKK
             //Random
             Random rand = new Random();
 
-            int cardValueIndex = rand.Next(0, 12);
+            int cardValueIndex = rand.Next(0, 13);
             int cardColorIndex = rand.Next(0, 3);
 
             Card card = new Card();
@@ -108,7 +107,7 @@ namespace BlackjackPLKK
             card.CardColor = Colors[cardColorIndex];
 
             //Labels
-            Label cardColorLblTop = new Label()
+            Label cardColorLbl = new Label()
             {
                 Text = card.CardColor.ToString(),
                 FontSize = 16,
@@ -119,34 +118,24 @@ namespace BlackjackPLKK
             Label cardValueLbl = new Label()
             {
                 Text = card.CardValue.ToString(),
-                FontSize = 24,
-                HorizontalTextAlignment = TextAlignment.Center,
+                FontSize = 22,
+                HorizontalTextAlignment = TextAlignment.Start,
                 VerticalTextAlignment = TextAlignment.Center,
-            };
-            Label cardColorLblBottom = new Label()
-            {
-                Text = card.CardColor.ToString(),
-                FontSize = 16,
-                HorizontalTextAlignment = TextAlignment.End,
-                VerticalTextAlignment = TextAlignment.End
-
             };
 
             //Layout
             StackLayout EnemyCardLayout = new StackLayout()
             {
                 WidthRequest = 70,
-                HeightRequest = 100,
+                HeightRequest = 150,
                 BackgroundColor = Color.White,
                 Orientation = StackOrientation.Horizontal,
                 Margin = new Thickness(0, 0, 10, 0),
                 HorizontalOptions = LayoutOptions.Start
             };
 
-            EnemyCardLayout.Children.Add(cardColorLblTop);
+            EnemyCardLayout.Children.Add(cardColorLbl);
             EnemyCardLayout.Children.Add(cardValueLbl);
-            EnemyCardLayout.Children.Add(cardColorLblBottom);
-
 
             cardDeckEnemy.Children.Add(EnemyCardLayout);
             EnemyScoreSum += CardValueDictionary[card.CardValue];
